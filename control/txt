@@ -1,0 +1,18 @@
+sudo apt-get install ros-<distro>-rosbridge-suite
+
+roslaunch rosbridge_server rosbridge_websocket.launch
+
+var ros = new ROSLIB.Ros({
+  url: 'ws://localhost:9090'
+});
+
+var cmdVelTopic = new ROSLIB.Topic({
+    ros : ros,
+    name : '/cmd_vel',
+    messageType : 'geometry_msgs/Twist'
+  });
+
+  
+#assuming that you're running on a different machine
+
+  rospy.init_node('my_drone_node', anonymous=True, master_uri='http://192.168.1.100:11311')

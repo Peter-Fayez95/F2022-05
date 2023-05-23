@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/zewaill/catkin_ws/devel/lib/libavoidance.a  CMakeFiles/avoidance.dir/ObstacleAvoidance.cpp.o
+/usr/bin/ranlib /home/zewaill/catkin_ws/devel/lib/libavoidance.a

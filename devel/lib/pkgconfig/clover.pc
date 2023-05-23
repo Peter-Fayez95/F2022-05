@@ -1,0 +1,8 @@
+prefix=/home/zewaill/catkin_ws/devel
+
+Name: clover
+Description: Description of clover
+Version: 0.23.0
+Cflags: -I/home/zewaill/catkin_ws/devel/include
+Libs: -L${prefix}/lib -lclover
+Requires: 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manual Control</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+	<script src="JS.js"></script>
+   <script>
+	const WS = new WebSocket('ws://localhost:9091');
+	const cmdVelTopic = new ROSLIB.Topic({
+	ros: ros,
+	name: '/cmd_vel',
+	messageType: 'geometry_msgs/Twist'
+	});
+
+const publishVelocity = function(x, y, z) {
+  const twist = new ROSLIB.Message({
+    linear: {
+      x: x,
+      y: y,
+      z: z
+    },
+    angular: {
+      x: 0.0,
+      y: 0.0,
+      z: 0.0
+    }
+  });
+  WS.send(twist);
+}
+
+document.addEventListener("keydown", function(event) {
+  switch (event.keyCode) {
+    case 87: // W key
+      publishVelocity(1.0, 0.0, 0.0);
+      break;
+    case 65: // A key
+      publishVelocity(0.0, 0.0, 1.0);
+      break;
+    case 83: // S key
+      publishVelocity(-1.0, 0.0, 0.0);
+      break;
+    case 68: // D key
+      publishVelocity(0.0, 0.0, -1.0);
+      break;
+    case 81: // Q key
+      publishVelocity(0.0, 1.0, 0.0);
+      break;
+    case 69: // E key
+      publishVelocity(0.0, -1.0, 0.0);
+      break;
+  }
+});
+
+document.addEventListener("keyup", function(event) {
+  publishVelocity(0.0, 0.0, 0.0);
+});
+
+   </script>
+</head>
+<body>
+	<div class="container">
+		<h1>Manual Control</h1>
+		<div class="controls">
+			<div class="pc-controls">
+				<h2>PC Controls</h2>
+				<p>Use the following keys to control the drone:</p>
+				<ul>
+					<li>W</li>
+					<li>A</li>
+					<li>S</li>
+					<li>D</li>
+					<li>Q</li>
+					<li>E</li>
+				</ul>
+				<p>Pressed key: <span id="pressed-key"></span></p>
+				<button class="land-fly-btn">Land/Fly</button>
+				<button class="video-stream-btn">Video Stream</button>
+			</div>
+			<div class="mobile-controls">
+				<h2>Mobile Controls</h2>
+				<p>Use the following controls to control the drone:</p>
+				<ul>
+					<li>Up</li>
+					<li>Down</li>
+					<li>Right</li>
+					<li>Left</li>
+					<li>Forward</li>
+					<li>Backward</li>
+				</ul>
+			</div>
+			<div class="video-stream">
+				<h2>Video Stream</h2>
+				<div id="video-box"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

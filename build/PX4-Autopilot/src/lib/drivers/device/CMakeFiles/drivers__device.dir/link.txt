@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/zewaill/catkin_ws/devel/lib/libdrivers__device.a  CMakeFiles/drivers__device.dir/CDev.cpp.o CMakeFiles/drivers__device.dir/posix/I2C.cpp.o CMakeFiles/drivers__device.dir/posix/SPI.cpp.o
+/usr/bin/ranlib /home/zewaill/catkin_ws/devel/lib/libdrivers__device.a

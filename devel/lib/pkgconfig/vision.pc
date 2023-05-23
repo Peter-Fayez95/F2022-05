@@ -1,0 +1,8 @@
+prefix=/home/zewaill/catkin_ws/devel
+
+Name: vision
+Description: Description of vision
+Version: 0.0.0
+Cflags: -I/home/zewaill/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: cv2 cv_bridge face_recognition pickle rospy std_msgs message_runtime

@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/zewaill/catkin_ws/devel/lib/libdrivers__smbus_sbs.a  
+/usr/bin/ranlib /home/zewaill/catkin_ws/devel/lib/libdrivers__smbus_sbs.a

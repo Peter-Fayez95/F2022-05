@@ -1,0 +1,2 @@
+/usr/bin/ar qc /home/zewaill/catkin_ws/devel/lib/libmixer_module.a  CMakeFiles/mixer_module.dir/mixer_module.cpp.o
+/usr/bin/ranlib /home/zewaill/catkin_ws/devel/lib/libmixer_module.a
